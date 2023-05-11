@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        normalText: ["var(--font-inter)"]
+      },
       colors: {
         'white': 'hsl(117, 90%, 97%)',
         'grey': {
@@ -30,12 +33,7 @@ module.exports = {
           400: 'hsl(146, 85%, 54%)',
           500: 'hsl(146, 100%, 45%)',
         },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      }
     },
   },
   plugins: [],

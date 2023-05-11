@@ -1,4 +1,12 @@
 import './globals.css'
+import { Inter } from "next/font/google"
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ['400','500','700'],
+  variable: '--font-inter'
+});
+
 
 export const metadata = {
   title: 'STMA Interno',
@@ -7,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body>{children}</body>
     </html>
   )
