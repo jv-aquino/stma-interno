@@ -8,10 +8,10 @@ export default function Navbar({logged}) {
     <nav className="bg-white w-full flex items-center justify-between py-3 px-7">
       <Image src={logo} alt='' width={155} height={65} />
 
-      <ul className="flex gap-4
-      text-black text-xl font-normalText font-bold">
-        <li><Link href="/">Início</Link></li>
-        <li><Link href="/login">Login</Link></li>
+      <ul className="flex gap-2
+      text-black text-2xl font-bold">
+        <Link href="/"><li>Início</li></Link>
+        <Link href="/login"><li>Login</li></Link>
       </ul>
     </nav>
   )

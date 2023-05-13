@@ -9,46 +9,42 @@ import { useState } from "react";
 
 function Login() {
   const [user, setUser] = useState();
-  const [email, setEmail] = useState();
-  const [senha, setSenha] = useState();
-  const router = useRouter()
+  const router = useRouter();
 
   const handleLogin = async e => {
-    e.preventDefault()
+    e.preventDefault();
 
-    setLoading(true);
+    let email = document.querySelector('#email').value;
+    let senha = document.querySelector('#senha').value;
 
-    setEmail(document.querySelector('#email').value);
-    setSenha(document.querySelector('#senha').value);
-
-    const { data, error } = await supabase.auth.signInWithPassword({ email, senha })
-    setUser(data);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, senha });
 
     if (error) {
-      // Handle error
+      console.log(error);
     } else {
-      router.push('/admin')
+      console.log(data);
+      setUser(data);
+      router.push('/')
     }
-
-    setLoading(false)
   }
 
   if (user) {
-    router.push('/admin')
+    router.push('/')
     return null
   }
 
   return (
     <div>
-      <h1>Login Administrativo</h1>
-      <form onSubmit={handleLogin} className="p-4 flex flex-col rounded bg-dark-blue-500 text-black">
+      <h1 className="">Login Administrativo</h1>
+      <form onSubmit={handleLogin} className="p-4 flex flex-col gap-3 
+      rounded bg-dark-blue-500 text-black">
         <label>
-          Email: <input type="email" id="email" value={email} />
+          Email: <input type="email" id="email" />
         </label>
         <label>
-          Senha: <input type="password" id="senha" value={senha} />
+          Senha: <input type="password" id="senha" />
         </label>
-        <button type="submit">Sign In</button>
+        <button type="submit" className="px-3 py-1 w-fit m-auto rounded   bg-light-blue-500">Login</button>
       </form>
     </div>
   )

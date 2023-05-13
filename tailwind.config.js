@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        normalText: ["var(--font-inter)"]
+        normalText: ["var(--font-inter)"],
+        header: ["var(--font-quicksand)"]
       },
       colors: {
         'white': 'hsl(117, 90%, 97%)',

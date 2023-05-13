@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: var(--font-inter);
+}
+
+nav li {
+  @apply border-2 border-transparent rounded px-2 p-1 transition-[.5s] hover:border-b-light-blue-500;
+}
+
 main {
   @apply bg-white h-screen w-full;
+}
+
+main h1 {
+  cursor: default;
+  text-align: center;
+  @apply font-bold font-header text-5xl pt-1 pb-3;
 }
