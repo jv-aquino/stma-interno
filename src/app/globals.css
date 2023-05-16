@@ -4,6 +4,8 @@
 
 * {
   font-family: var(--font-inter);
+  
+  @apply outline-light-blue-500;
 }
 
 nav li {
@@ -18,4 +20,9 @@ main h1 {
   cursor: default;
   text-align: center;
   @apply font-bold font-header text-5xl pt-1 pb-3;
+}
+
+main form input {
+  padding: 3px;
+  border-radius: .125rem;
 }
