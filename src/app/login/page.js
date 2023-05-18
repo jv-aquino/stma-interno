@@ -16,7 +16,7 @@ function Login() {
     let email = document.querySelector('#email').value;
     let senha = document.querySelector('#senha').value;
 
-    const { data, error } = await supabase.auth.signInWithPassword({ email, senha });
+    const { data, error } = await supabase.auth.signInWithPassword({ email: email, password: senha });
 
     if (error) {
       console.log(error);
