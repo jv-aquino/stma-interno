@@ -7,11 +7,14 @@ import { useRouter } from 'next/navigation'
 import supabase from "@/lib/supabase"
 import { useEffect } from "react";
 
+let loading = true;
+
 function Login() {
   const router = useRouter();
 
   const handleLogin = async e => {
     e.preventDefault();
+    if (loading) { return }
 
     let email = document.querySelector('#email').value;
     let senha = document.querySelector('#senha').value;
@@ -46,10 +49,11 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const { data, error } = supabase.auth.getSession();
-    if (data) {
-      console.log("ebaaa");
-    }
+    supabase.auth.getUser().then(res => {
+      const { data: { user } } = res;
+      (user) ? router.push('/') : null;
+      loading = false;
+    })
   }, [router]);
 
   return (

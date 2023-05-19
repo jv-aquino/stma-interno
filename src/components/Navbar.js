@@ -11,7 +11,8 @@ export default function Navbar({logged}) {
       <ul className="flex gap-2
       text-black text-2xl font-bold">
         <Link href="/"><li>Início</li></Link>
-        <Link href="/login"><li>Login</li></Link>
+        {(!logged) ? <Link href="/login"><li>Login</li></Link> : null}
+        {(logged) ? <li className="cursor-pointer">Logout</li> : null}
       </ul>
     </nav>
   )
