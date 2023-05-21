@@ -16,10 +16,14 @@ export default function Home() {
     })
   }, []);
   
+  const logoutFunction = () => {
+    supabase.auth.signOut();
+    setLogged(false);
+  }
 
   return (
     <>
-      <Navbar logged={logged} />
+      <Navbar logged={logged} logoutFunc={logoutFunction} />
 
       <main className="flex flex-col items-center">
         <h1>Início</h1>
