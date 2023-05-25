@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter, Quicksand } from "next/font/google"
+import '@fontsource/material-icons';
 
 const inter = Inter({
   subsets: ["latin"],

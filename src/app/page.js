@@ -28,7 +28,9 @@ export default function Home() {
       <main className="flex flex-col items-center">
         <h1>Início</h1>
         <div className="">
-          <p>Site administrativo da seção técnica de materiais da FEG</p>
+          <p>Site administrativo da seção técnica de materiais da FEG.</p>
+
+          <p>Aqui é possível acessar os sistemas internos da seção e atualizar informações necessárias de forma mais simples.</p>
         </div>
       </main>
 

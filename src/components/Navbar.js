@@ -10,7 +10,7 @@ export default function Navbar({logged, logoutFunc}) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 100);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -21,10 +21,20 @@ export default function Navbar({logged, logoutFunc}) {
 
       {!isLoading ? (
         <ul className="flex gap-2
-        text-black text-2xl font-bold">
-          <Link href="/"><li>Início</li></Link>
+        text-black text-[1.6rem] font-bold">
+          <Link href="/"><li className="text-[1.7rem]">Início</li></Link>
           {(!logged) ? <Link href="/login"><li>Login</li></Link> : null}
-          {(logged) ? <li className="cursor-pointer" onClick={logoutFunc}><span class="material-symbols-outlined">logout</span></li> : null}
+
+          {(logged) ? (<div className="dropdown">
+            <li>Atualizar <span className="symbol left-[-4px]">expand_more</span></li>
+            <ul>
+              <Link href="/pedidos"><li>Pedidos</li></Link>
+              <Link href="/equipe"><li>Equipe</li></Link>
+              <Link href="/faq"><li>FAQ</li></Link>
+            </ul>
+          </div>) : null}
+
+          {(logged) ? <li className="cursor-pointer" onClick={logoutFunc}><span class="symbol">logout</span></li> : null}
         </ul>
       ) : 
       <p>Carregando...</p>

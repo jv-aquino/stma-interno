@@ -8,17 +8,75 @@
   @apply outline-light-blue-500;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+span.symbol {
+  font-family: 'Material Icons', sans-serif;
+  vertical-align: text-bottom;
+  display: inline-block;
+  
+  position: relative;
+  top: 3px;
 }
 
-nav li {
-  @apply border-2 border-transparent rounded px-2 p-1 transition-[.5s] hover:border-b-light-blue-500;
+nav ul li {
+  cursor: pointer;
+  transition: .5s;
+  @apply border-2 border-transparent rounded px-2 p-2 hover:border-b-light-blue-500;
 }
+
+nav .dropdown {
+  position: relative;
+}
+nav .dropdown ul {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+
+  position: absolute;
+  top: 60px;
+  left: 1px;
+
+  transition: .4s .1s;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+nav .dropdown * {
+  transition: .4s .1s;
+}
+nav .dropdown ul li {
+  border: none;
+  border-radius: 0;
+  padding-right: 55px; 
+
+  @apply text-green-50 bg-light-blue-500;
+}
+nav .dropdown ul li:hover {
+  @apply bg-dark-blue-700;
+}
+
+nav .dropdown ul a:last-child li {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+nav .dropdown:hover ul {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+
+nav .dropdown:hover > li {
+  @apply text-light-blue-500;
+}
+
+nav .dropdown > li span {
+  transition: .5s ease-out;
+}
+nav .dropdown:hover > li span.symbol {    
+  transform: rotate(180deg);
+}
+
 
 main {
   @apply bg-white h-screen w-full;
