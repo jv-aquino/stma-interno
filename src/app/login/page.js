@@ -33,12 +33,17 @@ function Login() {
       <h1 className="">Login Administrativo</h1>
       <form onSubmit={handleLogin} className="p-4 flex flex-col gap-3 
       rounded-md bg-dark-blue-500 shadow-lg text-black text-lg">
-        <label>
-          Email: <input type="email" id="email" placeholder="exemplo@unesp.br" />
-        </label>
-        <label>
-          Senha: <input type="password" id="senha" />
-        </label>
+
+        <div>
+          <label className="text-xl font-medium pr-2" for="email">Email:</label>
+          <input type="email" id="email" placeholder="exemplo@unesp.br" />
+        </div>
+
+        <div>
+          <label className="text-xl font-medium pr-2" for="senha">Senha:</label>
+          <input type="password" id="senha" placeholder="Senha123" />
+        </div>
+
         <button type="submit" className="px-3 py-1 w-fit m-auto rounded   bg-light-blue-500 font-bold font-header text-2xl">Login</button>
       </form>
     </>

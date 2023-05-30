@@ -21,7 +21,7 @@ export default function Home() {
       <Navbar logged={logged} setLogged={setLogged} />
       
       <main className="flex flex-col items-center">
-    
+        <h1>Atualizar FAQ</h1>
       </main>
 
       <Footer />
