@@ -12,9 +12,10 @@ span.symbol {
   font-family: 'Material Icons', sans-serif;
   vertical-align: text-bottom;
   display: inline-block;
-  
-  position: relative;
-  top: 3px;
+}
+
+nav ul * {
+  line-height: 1.5;
 }
 
 nav ul li {

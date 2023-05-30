@@ -4,7 +4,9 @@ import logo from "@/app/logo.png"
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 
-export default function Navbar({logged, logoutFunc}) {
+import supabase from "@/lib/supabase";
+
+export default function Navbar({logged, setLogged}) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,7 +36,10 @@ export default function Navbar({logged, logoutFunc}) {
             </ul>
           </div>) : null}
 
-          {(logged) ? <li className="cursor-pointer" onClick={logoutFunc}><span class="symbol">logout</span></li> : null}
+          {(logged) ? <li className="cursor-pointer" onClick={() => {
+            supabase.auth.signOut();
+            setLogged(false);
+          }}><span class="symbol">logout</span></li> : null}
         </ul>
       ) : 
       <p>Carregando...</p>
