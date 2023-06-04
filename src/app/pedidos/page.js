@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [logged, setLogged] = useState(false);
+  const [file, setFile] = useState(false);
+  const [sucesso, setSucesso] = useState(false);
 
   useEffect(() => {
     supabase.auth.getUser().then(res => {
@@ -16,12 +18,24 @@ export default function Home() {
     })
   }, []);
 
-  async function uploadFile(file) {
-    const { data, error } = await supabase.storage.from(process.env.NEXT_PUBLIC_BUCKET).upload('pedidos.csv', file);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setFile(file);
+  };
+
+  async function uploadFile(e) {
+    e.preventDefault();
+
+    const { data, error } = await supabase.storage.from(process.env.NEXT_PUBLIC_BUCKET).update('pedidos.csv', file, {
+      cacheControl: '3600',
+      upsert: true
+    });
 
     if (error) {
-      
-    } else {}
+      console.log(error);
+    } else {
+      setSucesso(true);
+    }
   }
 
   return (
@@ -40,10 +54,13 @@ export default function Home() {
           </ol>
         </div>
 
-        <div className="pt-4 flex flex-col gap-3 items-center">
-          <input type="file" />
-          <button className="bg-light-blue-500 w-fit p-2">Upload</button>
-        </div>
+        <form onSubmit={(e) => uploadFile(e)}>
+          <div className="pt-4 flex flex-col gap-3 items-center">
+            <input type="file" onChange={handleFileChange} />
+            <button className="bg-light-blue-500 font-medium w-fit rounded p-2">Upload</button>
+          </div>
+        </form>
+        {(sucesso) ? <p className="p-2">Arquivo upado com sucesso</p> : ""}
       </main>
 
       <Footer />

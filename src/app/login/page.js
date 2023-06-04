@@ -35,12 +35,12 @@ function Login() {
       rounded-md bg-dark-blue-500 shadow-lg text-black text-lg">
 
         <div>
-          <label className="text-xl font-medium pr-2" for="email">Email:</label>
+          <label className="text-xl font-medium pr-2" htmlFor="email">Email:</label>
           <input type="email" id="email" placeholder="exemplo@unesp.br" />
         </div>
 
         <div>
-          <label className="text-xl font-medium pr-2" for="senha">Senha:</label>
+          <label className="text-xl font-medium pr-2" htmlFor="senha">Senha:</label>
           <input type="password" id="senha" placeholder="Senha123" />
         </div>
 
